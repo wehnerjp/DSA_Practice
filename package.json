@@ -1,0 +1,19 @@
+{
+  "name": "dsa_practice",
+  "version": "1.0.0",
+  "description": "JS DS&A Course Notes",
+  "main": "app.js",
+  "scripts": {
+    "test": "node LinkedListTest.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wehnerjp/DSA_Practice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wehnerjp/DSA_Practice/issues"
+  },
+  "homepage": "https://github.com/wehnerjp/DSA_Practice#readme"
+}
