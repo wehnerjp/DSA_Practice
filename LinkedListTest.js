@@ -2,21 +2,14 @@ const LinkedList = require("./LinkedList.js");
 
 const MethodTestCases = () => {
 
-  const linkListLists = [
-    new LinkedList(),
-    new LinkedList(1),
-    new LinkedList(1).push(2).push(3).push(4),
-  ];
-  const defaultLinkList = [
+  let linkListLists = [
     new LinkedList(),
     new LinkedList(1),
     new LinkedList(1).push(2).push(3).push(4),
   ];
 
   const resetTestCases = () => {
-    for(let i = 0; i < linkListLists.length; i++) {
-    linkListLists[i] = defaultLinkList[i];
-    }
+    linkListLists = [new LinkedList(), new LinkedList(1), new LinkedList(1).push(2).push(3).push(4)];
   };
 
   const getTestCases = () => {

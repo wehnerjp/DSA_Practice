@@ -1,8 +1,8 @@
-JS DS&A Course Notes
+# JS DS&A Course Notes
 
 Linked Lists, Binary tree, array = data structure
 
-Big O = way to mathematically determine program efficiency
+**Big O** = way to mathematically determine program efficiency
 
 Measure time complexity in the number of operations not time because fast computer would run slower code faster, operations is a better objective measure
 
@@ -57,7 +57,7 @@ If you pass in (a, b) to two separate for loops in a function, you can’t give 
 If they were nested it would be O(a * b)
 
 
-Big O of Arrays
+# Big O of Arrays
 
 Push and pop are O(1) operations, because there is no reindexing
 
@@ -79,7 +79,7 @@ O(1) = Constant
 
 
 
-Pointers
+# Pointers
 
 Setting num 1 to num 2 is temporary
 
@@ -88,7 +88,7 @@ Object with a value is a ref point
 If a var is assigned off one obj to another the other one still takes up space in memory, cleaned up with GC
 
 
-Linked list compared to arrays
+# Linked list compared to arrays
 
 Arrays have indexes not LL
 
