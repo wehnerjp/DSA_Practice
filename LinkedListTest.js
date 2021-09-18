@@ -1,7 +1,6 @@
 const LinkedList = require("./LinkedList.js");
 
 const MethodTestCases = () => {
-
   let linkListLists = [
     new LinkedList(),
     new LinkedList(1),
@@ -9,7 +8,11 @@ const MethodTestCases = () => {
   ];
 
   const resetTestCases = () => {
-    linkListLists = [new LinkedList(), new LinkedList(1), new LinkedList(1).push(2).push(3).push(4)];
+    linkListLists = [
+      new LinkedList(),
+      new LinkedList(1),
+      new LinkedList(1).push(2).push(3).push(4),
+    ];
   };
 
   const getTestCases = () => {
@@ -76,16 +79,62 @@ const MethodTestCases = () => {
       console.log("                                ");
     });
   };
+  const insertTestCases = () => {
+    linkListLists.forEach((linkedListType) => {
+      console.log("--------------------------------");
+      console.log("Before Insert: ", linkedListType);
+      console.log("--------------------------------");
+      console.log("Zero:", linkedListType.insert(3, 12));
+      console.log("One:", linkedListType.insert(1, 12));
+      console.log("Two:", linkedListType.insert(2, 12));
+      console.log("After Insert: ", linkedListType);
+      console.log("--------------------------------");
+      console.log("--------------------------------");
+      console.log("                                ");
+    });
+  };
 
-  getTestCases();
-  resetTestCases();
-  setTestCases();
-  resetTestCases();
-  popTestCases();
-  resetTestCases();
-  shiftTestCases();
-  resetTestCases();
-  unshiftTestCases();
+  const removeTestCases = () => {
+    linkListLists.forEach((linkedListType) => {
+      console.log("--------------------------------");
+      console.log("Before Remove: ", linkedListType);
+      console.log("--------------------------------");
+      console.log("Zero:", linkedListType.remove(3));
+      console.log("One:", linkedListType.remove(0));
+      console.log("Two:", linkedListType.remove(2));
+      console.log("After Remove: ", linkedListType);
+      console.log("--------------------------------");
+      console.log("--------------------------------");
+      console.log("                                ");
+    });
+  };
+
+  const reverseTestCases = () => {
+    linkListLists.forEach((linkedListType) => {
+      console.log("--------------------------------");
+      console.log("Before Reverse: ", linkedListType);
+      console.log("--------------------------------");
+      console.log(linkedListType.reverse());
+      console.log("After Remove: ", linkedListType);
+      console.log("--------------------------------");
+      console.log("--------------------------------");
+      console.log("                                ");
+    });
+  };
+
+  // getTestCases();
+  // resetTestCases();
+  // setTestCases();
+  // resetTestCases();
+  // popTestCases();
+  // resetTestCases();
+  // shiftTestCases();
+  // resetTestCases();
+  // unshiftTestCases();
+  // resetTestCases();
+  // insertTestCases();
+  // removeTestCases();
+  reverseTestCases();
 };
 
 MethodTestCases();

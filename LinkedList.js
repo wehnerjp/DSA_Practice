@@ -44,8 +44,6 @@ module.exports = class LinkedList {
       this.head = null;
       this.tail = null;
     }
-    console.log(this);
-    console.log(temp);
     return temp;
   }
   unshift(value) {
@@ -82,7 +80,51 @@ module.exports = class LinkedList {
     }
     return false;
   }
-}
+  insert(index, value) {
+    // insert item at desired index to desired value
+
+    if (index == 0) return this.unshift(value);
+    if (index < 0 || index >= this.length) return false;
+
+    const newNode = new Node(value);
+    newNode.next = this.get(index);
+
+    let temp = this.get(index - 1);
+    temp.next = newNode;
+    this.length++;
+    return true;
+  }
+  remove(index) {
+    // remove item at desired index and decrement length
+
+    if (index == 0) return this.shift();
+    if (index < 0 || index >= this.length) return false;
+
+    let before = this.get(index - 1);
+    let temp = before.next;
+
+    before.next = temp.next;
+    temp.next = null;
+    this.length--;
+    return temp;
+  }
+  reverse() {
+
+    if (1 >= this.length) return false;
+    let  placeholder = this.head;
+    let bf = null;
+    let pre;
+    this.head = this.tail
+    this.tail = placeholder;
+    for (let i = 0; i < this.length; i++) {
+      pre = placeholder.next;
+      placeholder.next = bf;
+      bf = placeholder;
+      placeholder = pre;
+    }
+    return true;
+  }
+};
 
 // let myLinkedList = new LinkedList(1);
 // myLinkedList.push(2);
