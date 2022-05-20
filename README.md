@@ -104,7 +104,6 @@ Set of nested objects
 
 Every method creates a new node for linked lists create a separate class to create nodes
 
-
 # Stacks and Queues
 
 ## Stacks

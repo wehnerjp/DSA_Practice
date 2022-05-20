@@ -109,19 +109,28 @@ module.exports = class LinkedList {
     return temp;
   }
   reverse() {
-
     if (1 >= this.length) return false;
-    let  placeholder = this.head;
-    let bf = null;
-    let pre;
-    this.head = this.tail
-    this.tail = placeholder;
+    let currentNode = this.head;
+    let nodeBefore = null;
+    let priorNext;
+    this.head = this.tail;
+    this.tail = currentNode;
     for (let i = 0; i < this.length; i++) {
-      pre = placeholder.next;
-      placeholder.next = bf;
-      bf = placeholder;
-      placeholder = pre;
+      priorNext = currentNode.next;
+      currentNode.next = nodeBefore;
+      nodeBefore = currentNode;
+      currentNode = priorNext;
     }
     return true;
+  }
+  kLast(k) {
+    if (1 >= this.length) return 0;
+    let nodeArr = [];
+    let currentNode = this.head;
+    for (let i = 0; i < this.length; i++) {
+      nodeArr.push(currentNode);
+      currentNode = currentNode.next;
+    }
+    return nodeArr[this.length - k];
   }
 };

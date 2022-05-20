@@ -121,6 +121,18 @@ const MethodTestCases = () => {
       console.log("                                ");
     });
   };
+  const kLastTestCases = () => {
+    linkListLists.forEach((linkedListType) => {
+      // console.log("--------------------------------");
+      // console.log("Before: ", linkedListType);
+      console.log("--------------------------------");
+      console.log("KLAST: ", linkedListType.kLast(2));
+      // console.log("After: ", linkedListType);
+      console.log("--------------------------------");
+      // console.log("--------------------------------");
+      console.log("                                ");
+    });
+  };
 
   // getTestCases();
   // resetTestCases();
@@ -134,7 +146,8 @@ const MethodTestCases = () => {
   // resetTestCases();
   // insertTestCases();
   // removeTestCases();
-  reverseTestCases();
+  // reverseTestCases();
+  kLastTestCases();
 };
 
 MethodTestCases();

@@ -67,6 +67,8 @@
 * Hash function determine how we jump from a string to a particular index of the array
     Hash function = string -> integer (hashcode) -> index in array -> object
 
+Like arrays, hash tables provide constant-time O(1) lookup on average, regardless of the number of items in the table. The (hopefully rare) worst-case lookup time in most hash table schemes is O(n).
+
 * index of the array is not the hash code
   * Primarily because the array that stores the value might be much smaller than all the potential hash table values
 * Two strings could have the same hash code
@@ -121,6 +123,12 @@ After each iteration, the greatest value of the array becomes the last index of 
 
 Recursive sort, splits the array down by half until single value is left, and then merge each value back together one by one
 
+if low is < high find middle (low + high) / 2
+call itself (mergeSort) recurvisely with low, mid and mid+1, high
+then call merge with low, mid, and high
+
+Merge is done in post order traversal
+
 Tree Recursive Structure
 Outer loop: Log n levels
 Inner loop: We look at all (n) items on each level
@@ -132,16 +140,55 @@ Then merge subroutine to compare and combine moving back up the call stack
 
     Only stable optimal sort
 
-    Complexity: n*log(n)
+    Time Complexity: n*log(n)
+    Space Complexity: O(n)
+
+
+    function mergeSort(arr) {
+    const half = arr.length / 2;
+
+    // the base case is array length <=1
+    if (arr.length <= 1) {
+        return arr;
+    }
+
+    const left = arr.splice(0, half); // the first half of the array
+    const right = arr;
+    return merge(mergeSort(left), mergeSort(right));
+    }
+
+
+    function merge(left, right) {
+    let arr = []
+    // Break out of loop if any one of the array gets empty
+    while (left.length && right.length) {
+        // Pick the smaller among the smallest element of left and right sub arrays 
+        if (left[0] < right[0]) {
+            arr.push(left.shift())  
+        } else {
+            arr.push(right.shift()) 
+        }
+    }
+    
+    // Concatenating the leftover elements
+    // (in case we didn't go through the entire left or right array)
+    return [ ...arr, ...left, ...right ]
 
 ### Quick Sort
 
-Divide and conquer
+Divide and conquer - recursive algorithm
 
 Pivot element divides array
 
 Smaller elements on the left side
 Larger on the right side
+
+choose a pivot (typically first or last)
+i at first element, j at last element
+increment i until its larger than pivot element
+decrement j until its smaller than pivot element
+swap i and j
+continue
 
 Recursively:
 
@@ -153,11 +200,32 @@ N elements
 log(n) swaps
 **Pros:**
 
-    Complexity: n*log(n) average, O(n^2) worst
+    Time Complexity: n*log(n) average, O(n^2) worst
+    Space Complexity: O(log(n))
+
+### Sort Wars
+
+Randomized Array: Quick sort wins
+
+Randomized array with limited values: Merge sort wins
+
+Reversed Array: Merge Sort wins
+
+Almost Sorted: Merge Sort
+
+Sorted: Merge Sort
+
+Merge sort faster overall
+
+Quick sort has better space complexity
 
 ## Trees
 
 ### Tree Basics
+
+Make search easy.  With int can compare with root, if larger check right node, if smaller than right node check left of right node etc.
+
+Binary Tree: 0-2 child nodes (left & right) - can be null
 
 #### What is a tree?
 
@@ -165,23 +233,49 @@ log(n) swaps
 * Expands out in only one direction
   * Can represent a parent child relationship or nested elements in html
 
-#### Basic Tree Construction Algorithms
-
-#### Basic Tree Traversal Algorithms
-
-#### Basic Tree Manipulation Algorithms
-
 ### Types of Trees
 
-#### Binary Trees
+#### Binary Search Trees
 
 * Lots of rules, but allow for efficient searches
 * Each node has 0-2 children
 * Left < Node
 * Right > Node
 * Adding elements in weird order can make it unbalanced or one sided and search optimization dissipates
+* With each search operation we chop off about half of the nodes
+
+Balanced:
+
+* insert: o(log n)
+* find: o(log n)
+
+Unbalanced:
+
+* insert: o(n)
+* find: o(n)
 
 #### Balanced Binary Trees and implementation
+
+Balance algorithms are built into a lot of programming languages so you'll just assume you have a balanced tree
+
+##### Heap
+
+A complete binary tree that stores the min or max in root node
+
+Insertion: Next empty spot top to bottom left to right
+
+Post insert, element bubbles up to right spot
+
+When removing root, swap with last element added, then bubble down
+
+Can use an array to store values
+
+Simple equation can map to left child (index x 2+1),
+right child (index x 2+2), or parent ((index - 1)/2)
+
+Don't need overhead of node class
+
+
 
 * Self balanced trees
 Red Black
@@ -193,15 +287,53 @@ AVL tree
 
 #### Trie-trees
 
+#### Basic Tree Construction Algorithms
+
+Inserts work much like finding value
+
+Compare to root, bigger = go right, smaller = go left
+Until we get to empty spot or null node, then we insert new element
+
+#### Basic Tree Traversal Algorithms
+
+    Pre-order: Root, Left, Right
+    In-order: Left, Root, Right
+    Post-order: Left, Right, Root
+
+Typically in BST we traverse in order because that allows the nodes to be printed in order
+
+Insert and find operate recursively from root
+if value is less and left is non empty go left, else insert in left
+if value is greater and right is non empty go right, else insert in right
+
+find/contains return boolean checking if value exists based on same function
+
+#### Basic Tree Manipulation Algorithms
+
 ### Tree Traversal Algorithms
 
 #### Breadth First Search
 
-* Use Queues
+* Goes Broad (to neighbors) before going deep (to children)
+* Need flag or some way of preventing infinite loop
+* Iterative using queue
+
+* NextToVisit linked list, add source node to queue
+* If NTV isn't empty, isn't destination, and isn't visited, remove from NTV, add to visited, and then add adjacent nodes to NTV queue
   
 #### Depth First Search
 
 * Use Stacks
+* Recursive Algorithm
+* Simpler
+* "Does each node adjacent to S have a path to T?"
+* Not necessarily shortest path
+* Have to use isVisited flag to avoid recursive loop; Best implemented by adding nodes to hash set then visiting
+* DFS path is best implemented using a linked list
+
+    Goes Deep (to children) before going broad (to neighbors)
+
+Might run really far away: T could be adjacent, but we go all the way through another adjacent node to find it instead
 
     Inorder:
     Postorder:
@@ -212,6 +344,9 @@ AVL tree
 * Similar to a linked list in that you have nodes linked to other nodes
 * In this case the pointers are called edges and edges can have numbers assigned to them ie the length between new york and LA
 * Social Media relationships are represented in graphs
+
+    Directed: A -> B; One way relationship
+    Indirected: 
 
 ### Representations of graphs in memory
 
