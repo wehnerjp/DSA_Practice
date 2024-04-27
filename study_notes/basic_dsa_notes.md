@@ -1,14 +1,14 @@
 # JS DS&A Course Notes
 
-Linked Lists, Binary tree, array = data structure
+<!-- Linked Lists, Binary tree, array = data structure
 
-**Big O** = way to mathematically determine program efficiency
+**Big O** = way to mathematically determine program efficiency -->
 
-Measure time complexity in the number of operations not time because fast computer would run slower code faster, operations is a better objective measure
+<!-- Measure time complexity in the number of operations not time because fast computer would run slower code faster, operations is a better objective measure
 
 Space Complexity = Amount of memory something uses
 
-Time Complexity & Space Complexity
+Time Complexity & Space Complexity -->
 
 Omega
 

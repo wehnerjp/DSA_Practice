@@ -1,16 +1,27 @@
 # Google Study Guide
 
-## Big O
+## Big O (Omicron)
 
-![Big O Poster](big-o-cheat-sheet-poster.png)
+A way to mathematically determine program efficiency, how runtime scales with respect to some input variables.
 
-    Big-O: A way to mathematically determine program efficiency, how runtime scales with respect to some input variables.
+![Big O Poster](./images/big-o-cheat-sheet-poster.png)
 
-    Space Complexity: Amount of memory something uses
+Big O is used to represent <b>time complexity</b> and <b>space complexity</b>
 
-* Time complexity is measured in the number of operations rather than time because of differences in computer processing power
-* Operations is a better objective measure
-* O(n) is a linear relationship
+#### Time Complexity
+
+    The number of operations an algorithm performs to complete a process
+
+* Measured in the number of operations rather than time
+* Operations is a better objective measure than time because of differences in computer processing power
+
+#### Space Complexity
+
+    The amount of memory something uses
+
+#### Common Big O Variables - Quick Facts
+
+* O(n) is a linear relationship; Will always be proportional; Has a linear slope
 * O(n^2) is a quadratic relationship
 * O(1) is a constant relationship
 * Big O measures worst case performance Omnicron
@@ -143,7 +154,7 @@ Then merge subroutine to compare and combine moving back up the call stack
     Time Complexity: n*log(n)
     Space Complexity: O(n)
 
-
+``` ts
     function mergeSort(arr) {
     const half = arr.length / 2;
 
@@ -173,6 +184,7 @@ Then merge subroutine to compare and combine moving back up the call stack
     // Concatenating the leftover elements
     // (in case we didn't go through the entire left or right array)
     return [ ...arr, ...left, ...right ]
+```
 
 ### Quick Sort
 
@@ -275,8 +287,6 @@ right child (index x 2+2), or parent ((index - 1)/2)
 
 Don't need overhead of node class
 
-
-
 * Self balanced trees
 Red Black
 
@@ -346,7 +356,7 @@ Might run really far away: T could be adjacent, but we go all the way through an
 * Social Media relationships are represented in graphs
 
     Directed: A -> B; One way relationship
-    Indirected: 
+    Indirected:
 
 ### Representations of graphs in memory
 
