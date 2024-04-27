@@ -1,44 +1,5 @@
 # JS DS&A Course Notes
 
-<!-- Linked Lists, Binary tree, array = data structure
-
-**Big O** = way to mathematically determine program efficiency -->
-
-<!-- Measure time complexity in the number of operations not time because fast computer would run slower code faster, operations is a better objective measure
-
-Space Complexity = Amount of memory something uses
-
-Time Complexity & Space Complexity -->
-
-Omega
-
-Theta
-
-Omicron = Big O
-
-When searching an Array best case (first index [0]) is omega
-
-Average = Theta
-
-Worst = Omicron
-
-When we measure Big O we always measure worst case
-
-O of N will always be proportional, linear slope
-
-Drop Constants to simplify Big O notation
-
-
-Drop Non-Dominants: Simplify Big O
-
-
-O(n^2 + n)
-
-n^2 is the dominant term
-
-
-O(1): Constant time
-
 
 O(log n)
 
@@ -46,7 +7,7 @@ Divide and conquer split check etc
 
 Has to be sorted data
 
-O(n log n)]
+O(n log n)
 
 Most efficient you can make a sorting algorithm unless your sorting only numbers
 
@@ -192,10 +153,6 @@ We need something pointing to the top node of a BST so it doesn't get garbage co
 For BST that is root
 
 # Hash Tables
-
-Objects are built in Hash Tables in JSON
-
-Consist of key value pairs
 
 Only key gets run through the hash 
 
