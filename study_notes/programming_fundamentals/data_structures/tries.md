@@ -33,8 +33,8 @@ We sacrifice insert efficiency to make lookups and removes more efficient
 * Node count can be expressed as 2^number of lines where number of lines represents the number of steps to traverse the tree
 * Lots of rules, but allow for efficient searches
 * Each node has 0-2 children
-* Left < Node
-* Right > Node
+* Left < Parent Node
+* Right > Parent Node
 * Adding elements in weird order can make it unbalanced or one sided and search optimization dissipates
 * With each search operation we chop off about half of the nodes
 
@@ -57,18 +57,15 @@ Balance algorithms are built into a lot of programming languages so you'll just 
 
 A complete binary tree that stores the min or max in root node
 
-Insertion: Next empty spot top to bottom left to right
-
-Post insert, element bubbles up to right spot
-
-When removing root, swap with last element added, then bubble down
-
-Can use an array to store values
-
-Simple equation can map to left child (index x 2+1),
-right child (index x 2+2), or parent ((index - 1)/2)
-
-Don't need overhead of node class
+* Insertion: Next empty spot top to bottom left to right
+* Post insert, element bubbles up to right spot
+* When removing root, swap with last element added, then bubble down
+* Can use an array to store values
+  * Don't need overhead of node class
+  * Simple equation can map to
+    * left child (index x 2+1),
+    * right child (index x 2+2),
+    * or parent ((index - 1)/2)
 
 ### Self balanced trees
 

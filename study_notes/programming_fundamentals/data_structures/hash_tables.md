@@ -3,17 +3,7 @@
 
 For any problem, have Hashtables at the top of your mind when exploring technique to solve the problem
 
-Only key gets run through the hash 
-
-Given an address ie 2
-
-Hashes are one way
-
-run object through and get where it is stored in memory
-
-cannot change value 2 and get it to produce string nails
-
-Hashes are deterministic, next time you run nails it'll also produce two different
+Run object through hashing function and get where it is stored in memory
 
 * Getting and setting is assumed constant time but could be linear
 * Common implementations in programming languages:
@@ -37,6 +27,7 @@ Hashes are deterministic, next time you run nails it'll also produce two differe
 * We want to store objects in an array
 * Hash function determine how we jump from a string to a particular index of the array
     Hash function = string -> integer (hashcode) -> index in array -> object
+* Hashes are deterministic
 
 Like arrays, hash tables provide constant-time O(1) lookup on average, regardless of the number of items in the table. The (hopefully rare) worst-case lookup time in most hash table schemes is O(n).
 
@@ -66,6 +57,6 @@ With a chaining linked list you now not only include the object, but also the ke
 
     Linear Probing: [Open Addressing] Another approach would be to go to next item and see if its open if there is already an item at the address space
 
-Another way of doing separate chaining is hacing a linked list at each address and adding to the linked list if there is duplicates
+Another way of doing separate chaining is having a linked list at each address and adding to the linked list if there is duplicates
 
 ## Implementation using only arrays
