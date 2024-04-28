@@ -28,9 +28,17 @@ The amount of memory something uses
 
     Common Big O Variables - Quick Facts
 
-    * O(n) is a linear relationship; Will always be proportional; Has a linear slope
-    * O(n^2) is a quadratic relationship
-    * O(1) is a constant relationship
+    * O(n) is a linear relationship; Proportional; Has a linear slope
+    * O(n^2) is a quadratic relationship; Loop within a Loop
+    * O(1); Constant relationship
+    * O(log n) is a logarithmic relationship; Halving the problem size each step; Divide and Conquer; Has to be sorted data
+    * O(n log n) is a linearithmic relationship; Merge Sort, Quick Sort; Most efficient you can make a sorting algorithm unless your sorting only numbers that are mostly presorted
+
+### Different Terms for Inputs - gotcha interview question
+
+If you pass in (a, b) to two separate for loops in a function, you can’t give big o notation of O(n) because you can’t say a and b are = n so it is O(a + b) simplified
+
+If they were nested it would be O(a * b)
 
 ### Process
 
@@ -54,13 +62,54 @@ The amount of memory something uses
     Good for: Retrieving items
     Bad for: Adding new items (If not in JS or Python)
 
+# Linked list compared to arrays
+
+Arrays have indexes not LL
+
+Arrays are in contiguous places in memory LL can be all over
+
+Head points to first items tail is last they all point to the next last points to null
+
+Null terminated list
+
+LL node is the value and the pointer, obj with value, next
+
+Set of nested objects
+
+Every method creates a new node for linked lists create a separate class to create nodes
+
 ## Stack + Queue
 
 * Stack: is LIFO, important for Depth First Search
-* Queue is FIFO
+* Queue is FIFO; queue from the tail dequeue from the head
   
     Good for: Efficienct add + remove
     Bad for: Limited use cases
+
+### Queues
+
+given an array with a queue you add from one end and remove from another.  It doesnt matter which.
+
+Because of that either add or remove will be O(n)
+
+With a linked list pop is O(n) push is O(1)
+
+However on the front both shift and unshift are O(1) so you never want to dequeue from the tail end because thats O(n)
+
+## Stacks
+
+* Can only remove last item added: LIFO
+* Pop from the stack until get to desired point
+* Back button is an example of a stack
+* Array is implementation of stack
+* With a stack can add and remove from same end doesn't matter which
+* Add/Remove to end of an array: O(1)
+* Add/Remove to beginning is O(n) because of reindexing
+* With Linked List stack the left is always the bottom.  The null terminated end is always at the bottom.  This way adding is O(1) instead of O(n)
+
+Shift and unshift will be pop/push with some alteration
+
+Instead of head tail there is just a top
 
 ## Hashtables (Objects)
 
@@ -194,49 +243,7 @@ Might run really far away: T could be adjacent, but we go all the way through an
     Postorder:
     Preorder:
 
-## Graphs
-
-* Similar to a linked list in that you have nodes linked to other nodes
-* In this case the pointers are called edges and edges can have numbers assigned to them ie the length between new york and LA
-* Social Media relationships are represented in graphs
-
-    Directed: A -> B; One way relationship
-    Indirected:
-
-### Representations of graphs in memory
-
-#### Objects and Pointers
-
-    Pros: 
-    Cons:
-
-#### Matrix
-
-    Pros: 
-    Cons:
-
-#### Adjacency List
-
-    Pros: 
-    Cons:
-
-### Traversal Algorithms
-
-#### Breadth-First Search
-
-    Computational Complexity
-    Tradeoffs:
-    Implementation:
-
-#### Depth-First Search
-
-    Computational Complexity
-    Tradeoffs:
-    Implementation:
-
-Dijkstra:
-
-A*:
+## [Graphs](./data_structures/graphs)
 
 ## Other
 

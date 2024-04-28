@@ -41,21 +41,3 @@
 Dijkstra:
 
 A*:
-
-## Other
-
-    NP-Complete Problems:
-        NP-Complete Meaning:
-        Traveling Salesmen:
-        Knapsack:
-        How to recognize:
-
-## Math
-
-### Discrete Math 101
-
-### Combinatorics
-
-### Probability
-
-### N-choose-K Problems
