@@ -62,7 +62,7 @@ If they were nested it would be O(a * b)
     Good for: Retrieving items
     Bad for: Adding new items (If not in JS or Python)
 
-# Linked list compared to arrays
+## Linked list compared to arrays
 
 Arrays have indexes not LL
 
@@ -111,7 +111,7 @@ Shift and unshift will be pop/push with some alteration
 
 Instead of head tail there is just a top
 
-## Hashtables (Objects)
+## [Hashtables](./data_structures/hash_tables.md) (Objects)
 
 * For any problem, have Hashtables at the top of your mind when exploring technique to solve the problem
 * Getting and setting is assumed constant time but could be linear
